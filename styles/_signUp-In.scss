@@ -1,0 +1,103 @@
+@use '_nullstyle';
+
+$brandClr: #5D5DFF;
+
+.greeting {
+    margin-top: -1em;
+    font-size: clamp(1em, 3vw, 3em);
+    text-align: center;
+}
+
+.flexWrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1em, 2vw, 2em);
+    width: 60%;
+    padding: 2em 0;
+}
+
+.btn_sign {
+    width: 100%;
+    border-radius: 5px;
+    padding: .5em .75em;
+    text-align: center;
+    color: #fff;
+}
+
+.btn_red {
+    background-color: #E53D3E;
+}
+
+fieldset {
+    border: none;
+    border-top: 1px dotted;
+    text-align: center;
+}
+
+.siginUp-In_Form {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    text-align: start;
+}
+
+.siginUp-In_Form label {
+    color: #fff;
+}
+
+.siginUp-In_Form input {
+    width: 100%;
+    padding: .7em 2em;
+    border-radius: 5px;
+    border: 1px solid #33363A;
+    background-color: transparent;
+    color: #fff;
+    transition: .3s all;
+}
+
+.siginUp-In_Form input:is(:hover, :focus) {
+    outline: $brandClr;
+    border-color: $brandClr;
+}
+
+.siginUp-In_Form input:valid {
+    border-color: green;
+}
+
+input:user-invalid {
+    border-color: red;
+}
+
+
+form sup {
+    color: red;
+}
+
+.privacy {
+    align-self: center;
+    text-align: center;
+    max-width: 40ch;
+    font-size: .7em;
+}
+
+form button[type='submit'] {
+    margin-top: .5em;
+    margin-bottom: .5em;
+    font-size: 1.3em;
+}
+
+input[type='checkbox'] {
+    width: auto;
+}
+
+.fancy_text {
+    font-style: italic;
+    color: #5D5DFF;
+}
+
+.checkMe_box {
+    display: flex;
+    justify-content: space-between;
+}
+
