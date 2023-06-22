@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/css/main.css">
+    <title>Landing Template</title>
+</head>
+
+<body>
+    <header class="page_container"> <span class="logo"><img src="images/icons/logo.png" alt="Logo"></span></header>
+    <main class="page_container">
+        <h1 class="greeting">Welcome. We exist to make entrepreneurism easier.</h1>
+        <div class="flexWrapper">
+            <a href="#" class="btn_sign btn_red">Sign Up with Google</a>
+            <fieldset>
+                <legend>Or, register with your email</legend>
+                <form action="#" class="siginUp-In_Form">
+                    <div class="input_group">
+                        <label for="fullName">Full Name<sup>*</sup></label><br>
+                        <input id="fullName" type="text" placeholder="First and last name" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="compName">Company Name<sup>*</sup></label><br>
+                        <input id="compName" type="text" placeholder="Your company or app name" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="email">Work Email<sup>*</sup></label><br>
+                        <input id="email" type="text" placeholder="you@yourcompany.com"
+                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                    </div>
+                    <div class="input_group">
+                        <label for="pasw">Password<sup>*</sup></label><br>
+                        <input id="pasw" type="password" title="at least 10 characters" minlength="8"
+                            placeholder="Passwrod (at least 10 characters)" required>
+                    </div>
+                    <p class="privacy">I agree to be contacted by Open PRO about this offer as per the Open PRO Privacy
+                        Policy. </p>
+                    <button type="submit" class="btn_sign btn_purple">Submit</button>
+                </form>
+                <p>Already using Open PRO? <a href="./signIn.html" class="fancy_text">Sign in</a></p>
+            </fieldset>
+        </div>
+
+    </main>
+</body>
+
+</html>
