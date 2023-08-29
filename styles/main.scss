@@ -1,11 +1,11 @@
 @use '_nullstyle';
 @use '_signUp-In';
-@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
 
 $whiteClr: #D9E3EA;
 $greyClr: #9BA9B4;
 $brandClr: #5D5DFF;
 $gap: clamp(1em, 2vw, 2em);
+$shadow: 0px 0px 50px $brandClr;
 
 // UTILS
 
@@ -25,13 +25,35 @@ $gap: clamp(1em, 2vw, 2em);
 .btn {
     padding: .625em 1em;
     border-radius: .3125rem;
+    border: 1px solid transparent;
+
+    &:hover {
+        border: 1px solid var(--borClr);
+        background-color: transparent;
+    }
 }
 
-i[class*="fa"] {
-    width: 100%;
+.btn_purple {
+    --borClr: #fff;
+    background-color: $brandClr;
+    color: $whiteClr;
 }
 
-///////////////
+.btn_grey {
+    --borClr: #33363A;
+    background-color: #33363A;
+}
+
+.hr_styled {
+    margin-block: calc($gap * 3);
+    border-color: $greyClr;
+}
+
+.hr_card {
+    border-color: #303030;
+}
+
+//////
 
 html {
     font-size: 1.125em;
@@ -45,14 +67,6 @@ body {
     color: $greyClr;
 }
 
-.hr_styled {
-    margin-block: 5rem;
-    border-color: $greyClr;
-}
-
-.hr_card {
-    border-color: #303030;
-}
 
 
 .page_container {
@@ -77,21 +91,17 @@ header {
     display: flex;
     align-items: center;
     gap: $gap;
+
+    .signIn {
+        color: $brandClr;
+
+        &:hover {
+            color: white;
+        }
+    }
 }
 
-.header_actions .signIn {
-    color: $brandClr;
-}
 
-
-.btn_purple {
-    background-color: $brandClr;
-    color: $whiteClr;
-}
-
-.btn_grey {
-    background-color: #33363A ;
-}
 
 // MAIN 
 
@@ -146,11 +156,19 @@ main {
     position: absolute;
     display: grid;
     place-items: center;
-    padding: 1em;
-    border-radius: 100%;
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
     background-color: #fff;
     font-size: 1.5em;
     color: $brandClr;
+    transition: .3s;
+
+    &:hover {
+        color: #fff;
+        background-color: $brandClr;
+        box-shadow: $shadow;
+    }
 }
 
 // features SECTION
@@ -164,7 +182,8 @@ main {
 
 .grid_features {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 25%));
     gap: calc($gap * 2);
     color: $whiteClr;
 }
@@ -177,9 +196,12 @@ main {
 }
 
 .grid_card_icon {
+    display: grid;
+    place-items: center;
     background-color: $brandClr;
-    border-radius: 50%;
-    padding: 1em;
+    border-radius: 100%;
+    width: 75px;
+    aspect-ratio: 1;
 }
 
 .grid_card_title {
@@ -188,7 +210,7 @@ main {
 }
 
 .offers_slogan {
-    padding: .5em .5em;
+    padding: .5rem .5rem;
     border-radius: 5em;
     align-self: center;
     background-color: $whiteClr;
@@ -261,48 +283,62 @@ main {
 
 .contact {
     display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    column-gap: calc($gap * 2);
-    row-gap: $gap;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: $gap;
     padding: calc($gap * 2) $gap;
     background-color: $brandClr;
     margin-block: calc($gap * 2);
 }
 
+.contact .contact_input, .contact .contact_text{
+    flex: 1 1 1;
+}
 
-.contact_text > {
-    text-align: start;
+
+.contact_text {
+    text-align: center;
 }
 
 .contact_input {
     display: flex;
     align-items: center;
     gap: 5px;
+
+    input {
+        width: max(200px, 80%);
+        height: 40px;
+        padding: .5em;
+        border: 1px solid #8D8DFF;
+        border-radius: 5px;
+        background-color: #4B4ACF;
+        line-height: 24px;
+        font-size: 1em;
+        color: $whiteClr;
+
+        &:hover {
+            box-shadow: 2px 2px 50px #8D8DFF;
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: .5em 1em;
+        border-color: transparent;
+        border-radius: 5px;
+        background-color: $whiteClr;
+        font-size: 1.1em;
+        font-weight: 700;
+        color: #5D5DFF;
+
+        &:hover {
+            --borClr: #fff;
+            color: $whiteClr;
+        }
+    }
 }
 
-.contact_input input {
-    width: max(200px, 80%);
-    height: 40px;
-    padding: .5em 1em;
-    border: 1px solid #8D8DFF;
-    border-radius: 5px;
-    background-color: #4B4ACF;
-    line-height: 24px;
-    font-size: 1.2em;
-    color: $whiteClr;
-}
 
-
-.contact_input button {
-    width: 100%;
-    padding-inline: 2em;
-    height: 40px;
-    border: transparent;
-    border-radius: 5px;
-    background-color: $whiteClr;
-    color: #5D5DFF;
-}
 
 
 
@@ -310,7 +346,7 @@ footer {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 3em;
+    padding-bottom: 3em;
     flex: 0 0 1;
 }
 
@@ -326,30 +362,42 @@ footer span {
 
 .media_ico {
     background-color: $brandClr;
-    border-radius: 50%;
-    padding: 1.5em;
+    border-radius: 100%;
+    padding: 1.5rem;
+    opacity: .7;
+
+    &:hover {
+        opacity: 1;
+        color: #fff;
+    }
 }
 
 
-@media (max-width: 72rem) {
-
-    html {
-        font-size: .9em;
-    }
-    // CONTACT
-
-    .contact {
-        justify-content: center;
-        text-align: center;
-        flex-wrap: wrap;
-    }
-    
-}
 
 @media (max-width: 57.5rem) {
 
+    // OFFERS
+
+       .offers_wrapperGrid {
+        text-align: center;
+        grid-template-columns: 1fr;
+        margin-top: $gap;
+    }
+
+    .offers_wrapperGrid p, span:not(.fancy_text)  {
+        text-align: start;
+    }
+
+    .offers_wrapperGrid .col_4 {
+        grid-row: 3;
+    }
+
+}
+
+@media (max-width: 50rem) {
+    
     html {
-        font-size: .8em;
+        font-size: 0.9em;
     }
 
     .page_container {
@@ -358,9 +406,9 @@ footer span {
 
     .grid_features {
         display: grid;
-        grid-template-columns: minmax(300px, 33%);
+        justify-content: flex-start;
         grid-auto-flow: column;
-        grid-auto-columns: minmax(300px, 33%);
+        grid-auto-columns: 250px;
         background-color: #33363A;
         gap: $gap;
         overflow-x: scroll;
@@ -383,25 +431,9 @@ footer span {
       }
 
     .grid_card {
-        padding: 2em .5em;
+        padding: 1.5rem .5rem;
         border-left: 2px solid #25282C;
         border-right: 2px solid #25282C;
         scroll-snap-align: start;
     }
-
-       // OFFERS
-       .offers_wrapperGrid {
-        text-align: center;
-        grid-template-columns: 1fr;
-        margin-top: $gap;
-    }
-
-    .offers_wrapperGrid p, span:not(.fancy_text)  {
-        text-align: start;
-    }
-
-    .offers_wrapperGrid .col_4 {
-        grid-row: 3;
-    }
-
 }

@@ -6,19 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Landing Page">
-    <link rel="stylesheet" href="styles/css/main.css">
-    <link onload="this.onload=null;this.rel='stylesheet'"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" rel="preload" as="font" />
+    <link rel="stylesheet" href="./dist/main.css">
+    <title>Google Fonts Example</title>
+    <link rel="shortcut icon" href="images/logo.webp" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:regular,500,700">
     <title>Landing Template</title>
 </head>
 
 <body>
     <header class="page_container">
-        <span class="logo"><img src="images/logo.png" alt="Logo" width="32" height="32"></span>
+        <a class="logo" href="/"><img src="images/logo.png" alt="Logo" width="32" height="32"></a>
         <div class="header_actions">
-            <a href="#" class="signIn">Sign In</a>
+            <a href="/signIn.html" class="signIn">Sign In</a>
             <a href="./signUp.html" class="btn_purple btn">Sign Up</a>
         </div>
     </header>
@@ -250,13 +249,12 @@
             </div>
             <div class="contact_input">
                 <input placeholder="Your best email...">
-                <button>Subscribe</button>
+                <button class="btn">Subscribe</button>
             </div>
         </form>
         </div>
     </main>
     <footer class="footer page_container">
-        <span>CopyRight &copy</span>
         <div class="footer_media">
             <a class="media_ico" href="#" aria-label="visit our linked-in page">
                 <i class="fa-brands fa-linkedin"></i>
@@ -275,7 +273,17 @@
             </a>
         </div>
     </footer>
-    <script src="slider.js"></script>
+    <script src="slider.js" defer></script>
+    <script defer>
+        // Load Font Awesome asynchronously
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+        link.integrity = 'sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==';
+        link.crossOrigin = 'anonymous';
+        link.referrerPolicy = 'no-referrer';
+        document.head.appendChild(link);
+    </script>
 </body>
 
 </html>
